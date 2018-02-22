@@ -25,7 +25,9 @@ def checkForNum (str):
 def writeLog (string):
     file = open(string+'/res.json', 'w')
     if string=='.':
-        file.write(id)
+        target=str(id)
+        target=target.replace('\'','\"')
+        file.write(target)
     else:
         file.write('{\"'+string+'\":'+str(id[string])+'}')
     file.close()
@@ -66,6 +68,7 @@ for i in os.listdir("."):
 print('4/5 正在记录...')
 for value in id.keys():
     writeLog(value)
+writeLog('.')
 
 print('5/5 完成')
 os.system('PAUSE')
